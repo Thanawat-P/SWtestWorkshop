@@ -53,7 +53,7 @@ Verify Registration Form With All Input Field
 
     # Verify Success
     Wait Until Element Contains    id=text_84    Your registration has been completed
-*** Test Cases ***
+
 Verify Required When First Name Empty
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
@@ -71,7 +71,6 @@ Verify Required When First Name Empty
 
     Close Browser
 
-*** Test Cases ***
 Verify Required When Last Name Empty
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
@@ -89,7 +88,6 @@ Verify Required When Last Name Empty
 
     Close Browser
 
-*** Test Cases ***
 Verify Required When ID Empty
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
@@ -107,8 +105,6 @@ Verify Required When ID Empty
 
     Close Browser
 
-
-*** Test Cases ***
 Verify Required When Phone Empty
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
@@ -125,7 +121,8 @@ Verify Required When Phone Empty
     Page Should Contain    This field is required.
 
     Close Browser
-*** Test Cases ***
+
+
 Verify Required When Email Empty
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
@@ -142,7 +139,7 @@ Verify Required When Email Empty
     Page Should Contain    This field is required.
 
     Close Browser
-*** Test Cases ***
+    
 Verify Required When Gender Empty
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window

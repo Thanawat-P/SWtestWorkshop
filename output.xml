@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.12 on win32)" generated="2026-02-20T23:36:49.134741" rpa="false" schemaversion="5">
+<suite id="s1" name="Hotel" source="C:\Data\RobotFrame\Hotel.robot">
+<test id="s1-t1" name="Valid Booking Form Submission" line="11">
+<kw name="Open Browser CU Hotel" owner="KeywordsHotel">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2026-02-20T23:36:49.305943" level="INFO">${is_ci} = False</msg>
+<var>${is_ci}</var>
+<arg>CI</arg>
+<arg>default=False</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2026-02-20T23:36:49.305754" elapsed="0.000220"/>
+</kw>
+<if>
+<branch type="IF" condition="'${is_ci}' == 'true'">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${WEB_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-02-20T23:36:49.306253" elapsed="0.000021"/>
+</kw>
+<status status="NOT RUN" start="2026-02-20T23:36:49.306074" elapsed="0.000238"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-20T23:36:49.306564" level="INFO">Opening browser 'chrome' to base url 'https://panaryco.wixsite.com/myhotel?utm_source=chatgpt.com'.</msg>
+<arg>${WEB_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-20T23:36:49.306414" elapsed="1.266940"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-20T23:36:50.573582" elapsed="0.028930"/>
+</kw>
+<status status="PASS" start="2026-02-20T23:36:49.306342" elapsed="1.296258"/>
+</branch>
+<status status="PASS" start="2026-02-20T23:36:49.306054" elapsed="1.296593"/>
+</if>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FNAME}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-20T23:36:50.602779" elapsed="0.019830"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${FNAME}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-20T23:36:50.622808" elapsed="0.303911"/>
+</kw>
+<status status="PASS" start="2026-02-20T23:36:49.305221" elapsed="1.621723"/>
+</kw>
+<kw name="Input Firstname" owner="KeywordsHotel">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-20T23:36:50.928206" level="INFO">Typing text 'John' into text field 'id=input_comp-lt33fcq41'.</msg>
+<arg>${FNAME}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-20T23:36:50.927904" elapsed="0.119040"/>
+</kw>
+<arg>${NAME}</arg>
+<status status="PASS" start="2026-02-20T23:36:50.927461" elapsed="0.119600"/>
+</kw>
+<kw name="Input Lastname" owner="KeywordsHotel">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-20T23:36:51.047826" level="INFO">Typing text 'Smith' into text field 'Smith'.</msg>
+<msg time="2026-02-20T23:36:51.126945" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-20T23:36:51.127111" level="FAIL">Element with locator 'Smith' not found.</msg>
+<arg>${LNAME}</arg>
+<arg>${lname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2026-02-20T23:36:51.047653" elapsed="0.081780">Element with locator 'Smith' not found.</status>
+</kw>
+<arg>${LNAME}</arg>
+<status status="FAIL" start="2026-02-20T23:36:51.047372" elapsed="0.082220">Element with locator 'Smith' not found.</status>
+</kw>
+<kw name="Input Email" owner="KeywordsHotel">
+<arg>${EMAIL}</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:51.129978" elapsed="0.000038"/>
+</kw>
+<kw name="Input Telephone" owner="KeywordsHotel">
+<arg>${TELPHONE}</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:51.130209" elapsed="0.000026"/>
+</kw>
+<kw name="Input Notes" owner="KeywordsHotel">
+<arg>${NOTES_TXT}</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:51.130362" elapsed="0.000022"/>
+</kw>
+<kw name="Input Amount People" owner="KeywordsHotel">
+<arg>2</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:51.130582" elapsed="0.000022"/>
+</kw>
+<kw name="Click &quot;No&quot; Pet" owner="KeywordsHotel">
+<status status="NOT RUN" start="2026-02-20T23:36:51.130752" elapsed="0.000023"/>
+</kw>
+<kw name="Click I accepted term" owner="KeywordsHotel">
+<status status="NOT RUN" start="2026-02-20T23:36:51.130913" elapsed="0.000021"/>
+</kw>
+<kw name="Click Submit" owner="KeywordsHotel">
+<status status="NOT RUN" start="2026-02-20T23:36:51.131143" elapsed="0.000021"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-20T23:36:51.131404" elapsed="2.173268"/>
+</kw>
+<status status="FAIL" start="2026-02-20T23:36:49.304501" elapsed="4.000803">Element with locator 'Smith' not found.</status>
+</test>
+<test id="s1-t2" name="Empty Form Validation" line="27">
+<kw name="Open Browser CU Hotel" owner="KeywordsHotel">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2026-02-20T23:36:53.310045" level="INFO">${is_ci} = False</msg>
+<var>${is_ci}</var>
+<arg>CI</arg>
+<arg>default=False</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2026-02-20T23:36:53.309520" elapsed="0.000601"/>
+</kw>
+<if>
+<branch type="IF" condition="'${is_ci}' == 'true'">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${WEB_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-02-20T23:36:53.310943" elapsed="0.000069"/>
+</kw>
+<status status="NOT RUN" start="2026-02-20T23:36:53.310365" elapsed="0.000757"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-20T23:36:53.311853" level="INFO">Opening browser 'chrome' to base url 'https://panaryco.wixsite.com/myhotel?utm_source=chatgpt.com'.</msg>
+<arg>${WEB_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-20T23:36:53.311451" elapsed="2.289793"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-20T23:36:55.601475" elapsed="0.030585"/>
+</kw>
+<status status="PASS" start="2026-02-20T23:36:53.311217" elapsed="2.320924"/>
+</branch>
+<status status="PASS" start="2026-02-20T23:36:53.310309" elapsed="2.321880"/>
+</if>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FNAME}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-20T23:36:55.632381" elapsed="0.019646"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${FNAME}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-02-20T23:36:55.652213" elapsed="0.294722"/>
+</kw>
+<status status="PASS" start="2026-02-20T23:36:53.308848" elapsed="2.638209"/>
+</kw>
+<kw name="Click Submit" owner="KeywordsHotel">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-20T23:36:55.948253" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<msg time="2026-02-20T23:36:56.101354" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-20T23:36:56.101683" level="FAIL">Button with locator '//button[@type='submit']' not found.</msg>
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2026-02-20T23:36:55.947980" elapsed="0.155698">Button with locator '//button[@type='submit']' not found.</status>
+</kw>
+<status status="FAIL" start="2026-02-20T23:36:55.947567" elapsed="0.156273">Button with locator '//button[@type='submit']' not found.</status>
+</kw>
+<kw name="Check Firstname is" owner="KeywordsHotel">
+<arg>invalid</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:56.104245" elapsed="0.000063"/>
+</kw>
+<kw name="Check Lastname is" owner="KeywordsHotel">
+<arg>invalid</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:56.104696" elapsed="0.000060"/>
+</kw>
+<kw name="Check Email is" owner="KeywordsHotel">
+<arg>invalid</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:56.105034" elapsed="0.000048"/>
+</kw>
+<kw name="Check Telephone is" owner="KeywordsHotel">
+<arg>invalid</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:56.105291" elapsed="0.000043"/>
+</kw>
+<kw name="Check Number of Adults is" owner="KeywordsHotel">
+<arg>invalid</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:56.105501" elapsed="0.000023"/>
+</kw>
+<kw name="Check Accept Terms is" owner="KeywordsHotel">
+<arg>invalid</arg>
+<status status="NOT RUN" start="2026-02-20T23:36:56.105668" elapsed="0.000038"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-02-20T23:36:56.105965" elapsed="2.145793"/>
+</kw>
+<status status="FAIL" start="2026-02-20T23:36:53.307514" elapsed="4.945219">Button with locator '//button[@type='submit']' not found.</status>
+</test>
+<status status="FAIL" start="2026-02-20T23:36:49.136195" elapsed="9.119028"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Hotel" id="s1" pass="0" fail="2" skip="0">Hotel</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
